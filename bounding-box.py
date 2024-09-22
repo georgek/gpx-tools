@@ -26,13 +26,13 @@ def main():
                         bbox = (point.longitude, point.latitude,
                                 point.longitude, point.latitude)
                     else:
-                        left, top, right, bottom = bbox
-                        left = min(left, point.longitude)
-                        right = max(right, point.longitude)
-                        top = max(top, point.latitude)
-                        bottom = min(bottom, point.latitude)
-                        bbox = left, top, right, bottom
-    print(",".join(str(n) for n in bbox))
+                        west, south, east, north = bbox
+                        west = min(west, point.longitude)
+                        east = max(east, point.longitude)
+                        north = max(north, point.latitude)
+                        south = min(south, point.latitude)
+                        bbox = west, south, east, north
+    print(",".join(f"{n:.6f}" for n in bbox))
 
 
 if __name__ == '__main__':
